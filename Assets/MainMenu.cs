@@ -10,6 +10,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("Level 1");
     }
 
+    public void OptionsButton()
+    {
+        //SceneManager.LoadSceneAsync("Level 1");
+    }
+
+    public void CreditsButton()
+    {
+        //SceneManager.LoadSceneAsync("Level 1");
+    }
+
 
 }
     
