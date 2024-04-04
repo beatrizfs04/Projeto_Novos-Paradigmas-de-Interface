@@ -4,16 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Up
-  - Down
-  - Left
-  - Right
-  - Hand
-  - Up Spawner
-  - Down Spawner
-  - Left Spawner
-  - Right Spawner
-  - Hand Spawner
+  - Note
   layers:
   - Default
   - TransparentFX
