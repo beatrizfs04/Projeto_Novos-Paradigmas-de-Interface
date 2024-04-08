@@ -4,20 +4,43 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject settingsMenu;
+    public GameObject creditsMenu;
+    public GameObject levelSelector;
+
     // Start is called before the first frame update
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("Level 1");
+        Debug.Log("Level Selector");
+        Debug.Log("Level Selector");
+        mainMenu.SetActive(false);
+        levelSelector.SetActive(true);
     }
 
     public void OptionsButton()
     {
-        //SceneManager.LoadSceneAsync("Level 1");
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(true);
     }
 
     public void CreditsButton()
     {
-        //SceneManager.LoadSceneAsync("Level 1");
+        mainMenu.SetActive(false);
+        creditsMenu.SetActive(true);
+    }
+
+
+    public void BackOptions()
+    {
+        settingsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void BackCredits()
+    {
+        creditsMenu.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
 
