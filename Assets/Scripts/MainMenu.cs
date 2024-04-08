@@ -12,8 +12,6 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
-        Debug.Log("Level Selector");
-        Debug.Log("Level Selector");
         mainMenu.SetActive(false);
         levelSelector.SetActive(true);
     }
@@ -43,6 +41,36 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
     }
 
+
+    public void PlayItaly()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayJapan()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayPortugal()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayMexico()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayBrasil()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlaySpain()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
 
 }
     
