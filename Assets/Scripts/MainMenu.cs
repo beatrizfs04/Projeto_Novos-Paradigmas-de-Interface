@@ -9,8 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsMenu;
     public GameObject levelSelector;
 
-    // Start is called before the first frame update
-    public AudioClip selectAudio;
+
     //AudioSource source;
     public void PlayGame()
     {
