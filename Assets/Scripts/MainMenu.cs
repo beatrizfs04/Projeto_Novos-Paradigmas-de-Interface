@@ -4,28 +4,75 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject settingsMenu;
+    public GameObject creditsMenu;
+    public GameObject levelSelector;
+
     // Start is called before the first frame update
     public AudioClip selectAudio;
     //AudioSource source;
     public void PlayGame()
     {
-        //source = GetComponent<AudioSource>();
-        //source.clip = selectAudio;
-        //source.Play();
-        
-        SceneManager.LoadSceneAsync("Level 1");
+        mainMenu.SetActive(false);
+        levelSelector.SetActive(true);
     }
 
     public void OptionsButton()
     {
-        //SceneManager.LoadSceneAsync("Level 1");
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(true);
     }
 
     public void CreditsButton()
     {
-        //SceneManager.LoadSceneAsync("Level 1");
+        mainMenu.SetActive(false);
+        creditsMenu.SetActive(true);
     }
 
+
+    public void BackOptions()
+    {
+        settingsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void BackCredits()
+    {
+        creditsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+
+    public void PlayItaly()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayJapan()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayPortugal()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayMexico()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlayBrasil()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
+
+    public void PlaySpain()
+    {
+        SceneManager.LoadSceneAsync("Main Scene");
+    }
 
 }
     
