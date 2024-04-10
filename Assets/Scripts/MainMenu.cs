@@ -45,32 +45,32 @@ public class MainMenu : MonoBehaviour
 
     public void PlayItaly()
     {
-        SceneManager.LoadSceneAsync("Main Scene");
+        SceneManager.LoadSceneAsync("Italy Scene");
     }
 
     public void PlayJapan()
     {
-        SceneManager.LoadSceneAsync("Main Scene");
+        SceneManager.LoadSceneAsync("Japan Scene");
     }
 
     public void PlayPortugal()
     {
-        SceneManager.LoadSceneAsync("Main Scene");
+        SceneManager.LoadSceneAsync("Portugal Scene");
     }
 
     public void PlayMexico()
     {
-        SceneManager.LoadSceneAsync("Main Scene");
+        SceneManager.LoadSceneAsync("México Scene");
     }
 
     public void PlayBrasil()
     {
-        SceneManager.LoadSceneAsync("Main Scene");
+        SceneManager.LoadSceneAsync("Brazil Scene");
     }
 
     public void PlaySpain()
     {
-        SceneManager.LoadSceneAsync("Main Scene");
+        SceneManager.LoadSceneAsync("Spain Scene");
     }
 
 }
