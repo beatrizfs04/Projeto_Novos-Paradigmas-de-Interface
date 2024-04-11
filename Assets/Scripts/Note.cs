@@ -6,7 +6,7 @@ public class Note : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
-    Transform transform;
+    new Transform transform;
 
     [Tooltip("Rotation speed of the sprite")]
     [SerializeField]
