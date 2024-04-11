@@ -42,6 +42,12 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
     }
 
+    public void BackLevelSelector()
+    {
+        levelSelector.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
 
     public void PlayItaly()
     {

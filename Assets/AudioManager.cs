@@ -7,8 +7,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] AudioMixer mixer;
-    [SerializeField] AudioSource eatSource;
-    [SerializeField] List<AudioClip> eatClips = new List<AudioClip>();
 
     public const string MUSIC_KEY = "MusicVolume";
     public const string SFX_KEY = "SFXVolume";
@@ -16,12 +14,6 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         LoadVolume();
-    }
-
-    public void EatSFX()
-    {
-        AudioClip clip = eatClips[Random.Range(0, eatClips.Count)];
-        eatSource.PlayOneShot(clip);
     }
 
     void LoadVolume()

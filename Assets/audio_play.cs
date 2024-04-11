@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class audio_play : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioSource selectSource;
 
-    // Update is called once per frame
-    void Update()
+    public void SelectMenuSFX()
     {
-        
+        selectSource.Play();
     }
 }
