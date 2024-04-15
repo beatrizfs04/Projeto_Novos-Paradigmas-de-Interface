@@ -10,6 +10,9 @@ public class PauseManager : MonoBehaviour
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
 
     [SerializeField] GameObject pauseGameObject;
+    [SerializeField] GameObject finishGameObject;
+
+    int score = 0;
 
     CanvasRenderer canvasRendererImage;
     CanvasRenderer canvasRendererButton1;
@@ -17,6 +20,7 @@ public class PauseManager : MonoBehaviour
 
     bool isPaused = false;
 
+    bool isFinish = false;
 
     // Update is called once per frame
     void Update()
@@ -55,6 +59,11 @@ public class PauseManager : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Return) && isFinish)
+        {
+            SceneManager.LoadSceneAsync("MainMenu");
+        }
+
 
         if (isPaused)
         {
@@ -69,6 +78,7 @@ public class PauseManager : MonoBehaviour
             if (canvasRendererButton1 && canvasRendererButton1.GetAlpha() > 0.0f) canvasRendererButton1.SetAlpha(canvasRendererButton1.GetAlpha() - 0.01f);
             if (canvasRendererButton1 && canvasRendererButton1.GetAlpha() > 0.0f) canvasRendererButton1.SetAlpha(canvasRendererButton1.GetAlpha() - 0.01f);
         }
+
     }
 
  
@@ -86,4 +96,26 @@ public class PauseManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("MainMenu");
     }
+
+    public void FinishGame()
+    {
+        isFinish = true;
+        finishGameObject.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    public void AddPoints()
+    {
+        score += 10;
+    }
+
+
+    public void RemovePoints()
+    {
+        score -= 5;
+
+        if (score < 0) score = 0;
+    }
+
+    public int GetScore() { return score; }
 }

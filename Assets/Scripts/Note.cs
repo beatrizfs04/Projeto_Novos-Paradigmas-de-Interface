@@ -51,7 +51,7 @@ public class Note : MonoBehaviour
     {
         if (sprites.Length < 1) return spriteRenderer.sprite;
 
-        return sprites[Random.Range(0, sprites.Length - 1)];
+        return sprites[Random.Range(0, sprites.Length)];
     }
 
     private void FixedUpdate()

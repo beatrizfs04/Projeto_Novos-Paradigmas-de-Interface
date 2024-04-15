@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Activator : MonoBehaviour
 {
@@ -29,15 +30,18 @@ public class Activator : MonoBehaviour
     {
         if(creatorMode && Input.GetKeyDown(key))
         {
-            Instantiate(note, tranform.position, new Quaternion());
+            Instantiate(noteToCreate, tranform.position, new Quaternion());
             return;
         }
 
 
         if(Input.GetKeyDown(key) && isActive)
         {
-            Debug.Log("Destroy note");
+            GameObject.Find("Main Camera").GetComponent<PauseManager>().AddPoints();
             Destroy(note);
+        } else if(Input.GetKeyDown(key) && !isActive)
+        {
+            GameObject.Find("Main Camera").GetComponent<PauseManager>().RemovePoints();
         }
     }
 
@@ -48,6 +52,12 @@ public class Activator : MonoBehaviour
             isActive = true;
             note = collision.gameObject;
         }
+
+        if (collision.gameObject.tag == "EndNote")
+        {
+            Destroy(collision.gameObject);
+            EndGame();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -57,5 +67,10 @@ public class Activator : MonoBehaviour
             isActive = false;
             if (creatorMode) collision.gameObject.GetComponent<Note>().setCreatorMode(creatorMode);
         }
+    }
+
+    public void EndGame()
+    {
+        GameObject.Find("Main Camera").GetComponent<PauseManager>().FinishGame();
     }
 }
