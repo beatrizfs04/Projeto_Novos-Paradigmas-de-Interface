@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+    public GameObject instructionsMenu;
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject creditsMenu;
@@ -33,6 +34,11 @@ public class MainMenu : MonoBehaviour
         creditsMenu.SetActive(true);
     }
 
+    public void CloseInstructions()
+    {
+        instructionsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
 
     public void BackOptions()
     {
