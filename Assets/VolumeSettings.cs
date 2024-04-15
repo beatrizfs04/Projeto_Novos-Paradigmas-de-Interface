@@ -69,13 +69,11 @@ public class VolumeSettings : MonoBehaviour
 
         if (musicSlider == null)
         {
-            Debug.LogError("Music Slider not set ! ");
             return;
         }
 
         if (sfxSlider == null)
         {
-            Debug.LogError("Sfx Slider not set !");
             return;
         }
 

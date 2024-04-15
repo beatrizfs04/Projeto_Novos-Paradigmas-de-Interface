@@ -157,3 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseKey: 27
+  pauseGameObject: {fileID: 4074774537573425809, guid: 075978461ff7f90458e817ebc9d6b058, type: 3}

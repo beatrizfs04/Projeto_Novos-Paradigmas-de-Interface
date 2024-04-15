@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsMenu;
     public GameObject levelSelector;
 
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
 
     //AudioSource source;
     public void PlayGame()

@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
     [Tooltip("Key for pausing the game")]
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
+
+    [SerializeField] GameObject pauseGameObject;
+
+    CanvasRenderer canvasRendererImage;
+    CanvasRenderer canvasRendererButton1;
+    CanvasRenderer canvasRendererButton2;
 
     bool isPaused = false;
 
@@ -15,14 +23,67 @@ public class PauseManager : MonoBehaviour
     {
         if(Input.GetKeyDown(pauseKey))
         {
+
             if(isPaused)
             {
                 Time.timeScale = 1.0f;
                 isPaused = false;
+                if(pauseGameObject.activeSelf)
+                {
+                    canvasRendererImage = null;
+                    canvasRendererButton1 = null;
+                    canvasRendererButton2 = null;
+                    pauseGameObject.SetActive(false);
+                }
+
+                
             } else {
+                EventSystem.current.SetSelectedGameObject(pauseGameObject.transform.Find("Canvas").Find("Resume").gameObject, new BaseEventData(EventSystem.current));
                 isPaused = true;
                 Time.timeScale = 0.0f;
+                if (!pauseGameObject.activeSelf)
+                {
+                    pauseGameObject.SetActive(true);
+                    canvasRendererImage = pauseGameObject.transform.Find("Canvas").Find("Image").GetComponent<CanvasRenderer>();
+                    canvasRendererButton1 = pauseGameObject.transform.Find("Canvas").Find("Back").GetComponent<CanvasRenderer>();
+                    canvasRendererButton2 = pauseGameObject.transform.Find("Canvas").Find("Resume").GetComponent<CanvasRenderer>();
+                    canvasRendererImage.SetAlpha(0.0f);
+                    canvasRendererButton1.SetAlpha(0.0f);
+                    canvasRendererButton2.SetAlpha(0.0f);
+                }   
+                
             }
         }
+
+
+        if (isPaused)
+        {
+
+            if (canvasRendererImage && canvasRendererImage.GetAlpha() < 1.0f) canvasRendererImage.SetAlpha(canvasRendererImage.GetAlpha() + 0.01f);
+            if (canvasRendererButton1 && canvasRendererButton1.GetAlpha() < 1.0f) canvasRendererButton1.SetAlpha(canvasRendererButton1.GetAlpha() + 0.01f);
+            if (canvasRendererButton2 && canvasRendererButton2.GetAlpha() < 1.0f) canvasRendererButton2.SetAlpha(canvasRendererButton2.GetAlpha() + 0.01f);
+        }
+        else
+        {
+            if (canvasRendererImage && canvasRendererImage.GetAlpha() > 0.0f) canvasRendererImage.SetAlpha(canvasRendererImage.GetAlpha() - 0.01f);
+            if (canvasRendererButton1 && canvasRendererButton1.GetAlpha() > 0.0f) canvasRendererButton1.SetAlpha(canvasRendererButton1.GetAlpha() - 0.01f);
+            if (canvasRendererButton1 && canvasRendererButton1.GetAlpha() > 0.0f) canvasRendererButton1.SetAlpha(canvasRendererButton1.GetAlpha() - 0.01f);
+        }
+    }
+
+ 
+
+    public void Resume()
+    {
+        canvasRendererImage.SetAlpha(0.0f);
+        canvasRendererButton1.SetAlpha(0.0f);
+        canvasRendererButton2.SetAlpha(0.0f);
+        isPaused = false;
+        Time.timeScale = 1.0f;
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 }
