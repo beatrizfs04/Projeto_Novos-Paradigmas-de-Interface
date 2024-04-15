@@ -55,7 +55,7 @@ public class Activator : MonoBehaviour
         if (collision.gameObject.tag == "Note")
         {
             isActive = false;
-            
+            if (creatorMode) collision.gameObject.GetComponent<Note>().setCreatorMode(creatorMode);
         }
     }
 }
