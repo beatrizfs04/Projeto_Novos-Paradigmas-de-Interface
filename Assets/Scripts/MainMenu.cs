@@ -31,8 +31,13 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsButton()
     {
-        mainMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         creditsMenu.SetActive(true);
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 
     public void CloseInstructions()
@@ -44,15 +49,13 @@ public class MainMenu : MonoBehaviour
     public void BackOptions()
     {
         settingsMenu.SetActive(false);
-        instructionsMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
 
     public void BackCredits()
     {
         creditsMenu.SetActive(false);
-        instructionsMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        settingsMenu.SetActive(true);
     }
 
     public void BackLevelSelector()
