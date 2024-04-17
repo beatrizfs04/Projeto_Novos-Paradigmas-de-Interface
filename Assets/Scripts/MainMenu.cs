@@ -44,19 +44,23 @@ public class MainMenu : MonoBehaviour
     public void BackOptions()
     {
         settingsMenu.SetActive(false);
+        instructionsMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
 
     public void BackCredits()
     {
         creditsMenu.SetActive(false);
+        instructionsMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
 
     public void BackLevelSelector()
     {
         levelSelector.SetActive(false);
+        instructionsMenu.SetActive(false);
         mainMenu.SetActive(true);
+
     }
 
 

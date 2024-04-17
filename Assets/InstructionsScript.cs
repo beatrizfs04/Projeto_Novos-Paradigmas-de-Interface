@@ -24,7 +24,6 @@ public class InstructionsScript : MonoBehaviour
             if (!goToLevelSelector) {
                 instructionsMenu.SetActive(true);
                 firstTime = false;
-                return;
             } else { 
                 levelMenu.SetActive(true);
                 goToLevelSelector = false;
