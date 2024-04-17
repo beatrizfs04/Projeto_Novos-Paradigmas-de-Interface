@@ -39,8 +39,8 @@ public class PauseManager : MonoBehaviour
                     canvasRendererButton2 = null;
                     pauseGameObject.SetActive(false);
                 }
+                gameObject.GetComponent<audio_play>().ResumeLevelMusic();
 
-                
             } else {
                 EventSystem.current.SetSelectedGameObject(pauseGameObject.transform.Find("Canvas").Find("Resume").gameObject, new BaseEventData(EventSystem.current));
                 isPaused = true;
@@ -54,8 +54,9 @@ public class PauseManager : MonoBehaviour
                     canvasRendererImage.SetAlpha(0.0f);
                     canvasRendererButton1.SetAlpha(0.0f);
                     canvasRendererButton2.SetAlpha(0.0f);
-                }   
-                
+                }
+                gameObject.GetComponent<audio_play>().PauseLevelMusic();
+
             }
         }
 
@@ -90,6 +91,7 @@ public class PauseManager : MonoBehaviour
         canvasRendererButton2.SetAlpha(0.0f);
         isPaused = false;
         Time.timeScale = 1.0f;
+        gameObject.GetComponent<audio_play>().ResumeLevelMusic();
     }
 
     public void BackToMenu()
