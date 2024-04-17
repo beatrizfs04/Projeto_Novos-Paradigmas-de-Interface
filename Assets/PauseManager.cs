@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     [Tooltip("Key for pausing the game")]
-    [SerializeField] KeyCode pauseKey = KeyCode.Escape;
 
     [SerializeField] GameObject pauseGameObject;
     [SerializeField] GameObject finishGameObject;
@@ -25,7 +24,7 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(pauseKey))
+        if(Input.GetButtonDown("Cancel"))
         {
 
             if(isPaused)
