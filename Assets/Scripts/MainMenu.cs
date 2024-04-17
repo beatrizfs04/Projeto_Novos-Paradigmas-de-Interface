@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1.0f;
+        instructionsMenu.SetActive(true);
     }
 
     //AudioSource source;

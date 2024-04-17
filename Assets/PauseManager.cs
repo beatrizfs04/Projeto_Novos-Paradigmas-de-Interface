@@ -63,6 +63,8 @@ public class PauseManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return) && isFinish)
         {
             SceneManager.LoadSceneAsync("MainMenu");
+            GameObject StatusHandler = GameObject.Find("StatusHandler");
+            if (StatusHandler) StatusHandler.GetComponent<InstructionsScript>().OpenLevelSelector();
         }
 
 
@@ -97,6 +99,8 @@ public class PauseManager : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
+        GameObject StatusHandler = GameObject.Find("StatusHandler");
+        if (StatusHandler) StatusHandler.GetComponent<InstructionsScript>().OpenLevelSelector();
     }
 
     public void FinishGame()
