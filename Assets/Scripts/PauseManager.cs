@@ -59,7 +59,7 @@ public class PauseManager : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Return) && isFinish)
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.F)) && isFinish)
         {
             SceneManager.LoadSceneAsync("MainMenu");
             GameObject StatusHandler = GameObject.Find("StatusHandler");
@@ -107,6 +107,11 @@ public class PauseManager : MonoBehaviour
         isFinish = true;
         finishGameObject.SetActive(true);
         Time.timeScale = 0.0f;
+    }
+
+    public bool IsFinished()
+    {
+        return isFinish;
     }
 
     public void AddPoints()

@@ -34,12 +34,12 @@ public class Activator : MonoBehaviour
             return;
         }
 
-
-        if(Input.GetKeyDown(key) && isActive)
+        bool isFinished = GameObject.Find("Main Camera").GetComponent<PauseManager>().IsFinished();
+        if (Input.GetKeyDown(key) && isActive && !isFinished)
         {
             GameObject.Find("Main Camera").GetComponent<PauseManager>().AddPoints();
             Destroy(note);
-        } else if(Input.GetKeyDown(key) && !isActive)
+        } else if(Input.GetKeyDown(key) && !isActive && !isFinished)
         {
             GameObject.Find("Main Camera").GetComponent<PauseManager>().RemovePoints();
         }
